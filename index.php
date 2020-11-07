@@ -193,7 +193,7 @@
 
         <script>
             function excluir(lin){
-				document.getElementById("idRegistro").value=lin;
+				document.getElementById("idRegistro").value = lin;
             }
         </script>
         

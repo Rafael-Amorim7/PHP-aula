@@ -25,5 +25,5 @@
     $sql = "insert into pessoas(Nome,cpf,endereco,cep,email) values ('$nome','$cpf','$endereco','$cep','$email')";
     $status = $conecta->query($sql);
 
-    header('Location: index.php');
+    echo "<script>alert('Registro cadastrado'); location.href='index.php'</script>";
 ?>
