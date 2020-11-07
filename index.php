@@ -63,7 +63,7 @@
 						<td id="<?="email".$codigo?>"> <?=$email?> </td>
 
                         <td style="width: 20px;">
-                            <button onclick="" id="<?=$codigo?>" type="submit" data-toggle="modal" data-target="#modalExemplo" class="btn btn-success">Alterar</button>
+                            <button onclick="alterar(<?php echo $codigo; ?>)" type="submit" data-toggle="modal" data-target="#modalAlterar" class="btn btn-success">Alterar</button>
                         </td>
                         <td style="width: 20px;">
                             <button onclick="excluir(<?php echo $codigo; ?>)" type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalDeletar">Deletar</button>
@@ -74,47 +74,48 @@
             </tbody>
         </table>
         
-        <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade"  id="modalAlterar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Alterar usuario</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                    <form>
+                    <form action="alterar.php" method="POST">
+
+                        <input type="hidden" name="id" id ="id"/>
+
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nome:</label>
-                            <input type="text" class="form-control" id="Nome" aria-describedby="emailHelp" placeholder="Digite seu nome" required>
+                            <input type="text" class="form-control" id="Nome" name="Nome" aria-describedby="emailHelp" placeholder="Digite seu nome" required>
                         
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">CPF:</label>
-                            <input type="number" class="form-control" id="cpf" placeholder="Digite seu CPF">
+                            <input type="number" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Endereço:</label>
-                            <input type="text" class="form-control" id="endereco" aria-describedby="endereco" placeholder="Digite seu Endereço">
+                            <input type="text" class="form-control" id="endereco" name="endereco" aria-describedby="endereco" placeholder="Digite seu Endereço">
                         </div>
 
                         <div class="form-group">
                             <label for="exampleInputPassword1">CEP:</label>
-                            <input type="number" class="form-control" id="cep" placeholder="Digite seu CEP">
+                            <input type="number" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Digite seu E-mail">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu E-mail">
+                            <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                        <button type="submit" class="btn btn-primary">Salvar mudanças</button>
                     </div>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -130,6 +131,7 @@
                     </div>
                     <div class="modal-body">
                     <form action="include.php" method="POST">
+
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nome:</label>
                             <input type="text" class="form-control" name="Nome" id="Nome" aria-describedby="emailHelp" placeholder="Digite seu nome" required name="">
@@ -193,7 +195,10 @@
 
         <script>
             function excluir(lin){
-				document.getElementById("idRegistro").value = lin;
+                document.getElementById("idRegistro").value = lin;
+            }
+            function alterar(lin) {
+                document.getElementById("id").value = lin;
             }
         </script>
         
