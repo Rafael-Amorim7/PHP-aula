@@ -1,6 +1,6 @@
 <?php
     include ("conexao.php");
-    $nome = ""; $cpf = ""; $endereco=""; $cep=""; $email=""; $id="";
+    $nome = ""; $cpf = ""; $endereco=""; $cep=""; $email=""; $codigo="";
 
 
     if (!empty($_POST["Nome"])){
@@ -21,11 +21,11 @@
     if (!empty($_POST["email"])){
         $email = $_POST["email"];
     }
-    if (!empty($_POST["id"])){
-      $id = $_POST["id"];
+    if (!empty($_POST["codigo"])){
+      $codigo = $_POST["codigo"];
   }
 
-    $sql = "UPDATE pessoas SET nome = '$nome', cpf = '$cpf', endereco = '$endereco', cep = '$cep', email = '$email' WHERE codigo = $id";
+    $sql = "UPDATE pessoas SET nome = '$nome', cpf = '$cpf', endereco = '$endereco', cep = '$cep', email = '$email' WHERE codigo = $codigo";
     $status = $conecta->query($sql);
 
     echo "<script>alert('Registro alterado'); location.href='index.php'</script>";

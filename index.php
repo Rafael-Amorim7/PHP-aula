@@ -86,7 +86,7 @@
                     <div class="modal-body">
                     <form action="alterar.php" method="POST">
 
-                        <input type="hidden" name="id" id ="id"/>
+                        <input type="hidden" name="codigo" id ="codigo"/>
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nome:</label>
@@ -198,7 +198,7 @@
                 document.getElementById("idRegistro").value = lin;
             }
             function alterar(lin) {
-                document.getElementById("id").value = lin;
+                document.getElementById("codigo").value = lin;
             }
         </script>
         
