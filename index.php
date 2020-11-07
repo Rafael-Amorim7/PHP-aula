@@ -84,58 +84,58 @@
         <?php } ?>
       </tbody>
   </table>
+    
+    <!--popup de alterar -->
+    <div class="modal fade" id="modalAlterar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Alterar usuario</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <form action="alterar.php" method="POST">
 
-  <div class="modal fade" id="modalAlterar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Alterar usuario</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-            <span aria-hidden="true">&times;</span>
-          </button>
+                <input type="hidden" name="codigo" id="codigo" />
+
+                <div class="form-group">
+                <label for="exampleInputEmail1">Nome:</label>
+                <input type="text" class="form-control" id="Nome" name="Nome" aria-describedby="emailHelp"
+                    placeholder="Digite seu nome" required>
+
+                </div>
+                <div class="form-group">
+                <label for="exampleInputPassword1">CPF:</label>
+                <input type="number" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
+                </div>
+
+                <div class="form-group">
+                <label for="exampleInputEmail1">Endereço:</label>
+                <input type="text" class="form-control" id="endereco" name="endereco" aria-describedby="endereco"
+                    placeholder="Digite seu Endereço">
+                </div>
+
+                <div class="form-group">
+                <label for="exampleInputPassword1">CEP:</label>
+                <input type="number" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP">
+                </div>
+                <div class="form-group">
+                <label for="exampleInputPassword1">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu E-mail">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+                </div>
+                </div>
+            </form>
+            </div>
         </div>
-        <div class="modal-body">
-          <form action="alterar.php" method="POST">
-
-            <input type="hidden" name="codigo" id="codigo" />
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">Nome:</label>
-              <input type="text" class="form-control" id="Nome" name="Nome" aria-describedby="emailHelp"
-                placeholder="Digite seu nome" required>
-
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">CPF:</label>
-              <input type="number" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
-            </div>
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">Endereço:</label>
-              <input type="text" class="form-control" id="endereco" name="endereco" aria-describedby="endereco"
-                placeholder="Digite seu Endereço">
-            </div>
-
-            <div class="form-group">
-              <label for="exampleInputPassword1">CEP:</label>
-              <input type="number" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Email:</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu E-mail">
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="submit" class="btn btn-primary">Salvar mudanças</button>
-              </div>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
     <!--popup de adicionar -->
-    <div class="modal fade" id="modalAdicionar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
+    <div class="modal fade" id="modalAdicionar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -182,8 +182,6 @@
         </div>
       </div>
     </div>
-    <!--popup de adicionar (fim) -->
-
     <!--confirmação de deletar -->
     <div class="modal fade" id="modalDeletar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
@@ -209,22 +207,26 @@
           </div>
         </div>
       </div>
-      <!--confirmação de deletar (fim) -->
 
-      <script>
-      function excluir(lin) {
-        document.getElementById("idRegistro").value = lin;
-      }
 
-      function alterar(lin, nome, cpf, endereco, cep, email) {
-        document.getElementById("codigo").value = lin;
-        document.getElementById("Nome").value = nome;
-        document.getElementById("cpf").value = cpf;
-        document.getElementById("endereco").value = endereco;
-        document.getElementById("cep").value = cep;
-        document.getElementById("email").value = email;
+    
+    
+    
+    <!--confirmação de deletar (fim) -->
+    <script>
+    function excluir(lin) {
+    document.getElementById("idRegistro").value = lin;
     }
-      </script>
+
+    function alterar(lin, nome, cpf, endereco, cep, email) {
+    document.getElementById("codigo").value = lin;
+    document.getElementById("Nome").value = nome;
+    document.getElementById("cpf").value = cpf;
+    document.getElementById("endereco").value = endereco;
+    document.getElementById("cep").value = cep;
+    document.getElementById("email").value = email;
+    }
+    </script>
 
 
 </body>
