@@ -72,7 +72,7 @@
           <td id="<?="email".$codigo?>"> <?=$email?> </td>
 
           <td style="width: 20px;">
-            <button onclick="alterar(<?php echo $codigo; ?>)" type="submit" data-toggle="modal"
+            <button onclick="alterar(<?php echo $codigo.', \''.$nome.'\', '.$cpf.', \''.$endereco.'\', '.$cep.', \''.$email.'\''; ?>)" type="submit" data-toggle="modal"
               data-target="#modalAlterar" class="btn btn-success">Alterar</button>
           </td>
           <td style="width: 20px;">
@@ -216,9 +216,14 @@
         document.getElementById("idRegistro").value = lin;
       }
 
-      function alterar(lin) {
+      function alterar(lin, nome, cpf, endereco, cep, email) {
         document.getElementById("codigo").value = lin;
-      }
+        document.getElementById("Nome").value = nome;
+        document.getElementById("cpf").value = cpf;
+        document.getElementById("endereco").value = endereco;
+        document.getElementById("cep").value = cep;
+        document.getElementById("email").value = email;
+    }
       </script>
 
 
