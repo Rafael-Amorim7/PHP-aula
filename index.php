@@ -15,75 +15,77 @@
 </head>
 
 <body>
-  <center>
+    <center>
     <button style="margin:10px; " type="submit" class="btn btn-success" data-toggle="modal"
-      data-target="#modalAdicionar">Adicionar</button>
-  </center>
-  <table class="table table-striped table-dark">
-    <thead>
-      <th colspan="8">
+        data-target="#modalAdicionar">Adicionar</button>
+    </center>
+
+    <!-- Tabela de usuarios cadastrados -->
+    <table class="table table-striped table-dark">
+        <thead>
+        <th colspan="8">
         <center>
-          Tabela Contadora (Em produção)
+            Tabela Contadora (Em produção)
         </center>
-      </th>
-      <thead>
-      <tbody>
+        </th>
+        <thead>
+        <tbody>
 
         <?php
                     $id = 0;
                     $lin = 0;
                 ?>
         <?php 
-					include ("conexao.php");
-					$sql = "select * from pessoas"; 
-					$query=$conecta->query($sql);
-						
-					
-					
-				?>
+                    include ("conexao.php");
+                    $sql = "select * from pessoas"; 
+                    $query=$conecta->query($sql);
+                        
+                    
+                    
+                ?>
         <tr>
-          <th> Nome
-          </th>
-          <th> CPF
-          </th>
-          <th> Endereço
-          </th>
-          <th> CEP
-          </th>
-          <th> e-mail
-          </th>
-          <th colspan="2">
+            <th> Nome
+            </th>
+            <th> CPF
+            </th>
+            <th> Endereço
+            </th>
+            <th> CEP
+            </th>
+            <th> e-mail
+            </th>
+            <th colspan="2">
             <center>
-              Ações
+                Ações
             </center>
-          </th>
+            </th>
 
         </tr>
         <?php 
-					while($colunas=$query->fetch_assoc()){
-						extract($colunas); 
-				?>
+                    while($colunas=$query->fetch_assoc()){
+                        extract($colunas); 
+                ?>
 
         <tr>
-          <td id="<?="nome".$codigo?>"> <?=$nome?> </td>
-          <td id="<?="cpf".$codigo?>"> <?=$cpf?> </td>
-          <td id="<?="endereco".$codigo?>"> <?=$endereco?> </td>
-          <td id="<?="cep".$codigo?>"> <?=$cep?> </td>
-          <td id="<?="email".$codigo?>"> <?=$email?> </td>
+            <td id="<?="nome".$codigo?>"> <?=$nome?> </td>
+            <td id="<?="cpf".$codigo?>"> <?=$cpf?> </td>
+            <td id="<?="endereco".$codigo?>"> <?=$endereco?> </td>
+            <td id="<?="cep".$codigo?>"> <?=$cep?> </td>
+            <td id="<?="email".$codigo?>"> <?=$email?> </td>
 
-          <td style="width: 20px;">
+            <td style="width: 20px;">
             <button onclick="alterar(<?php echo $codigo.', \''.$nome.'\', '.$cpf.', \''.$endereco.'\', '.$cep.', \''.$email.'\''; ?>)" type="submit" data-toggle="modal"
-              data-target="#modalAlterar" class="btn btn-success">Alterar</button>
-          </td>
-          <td style="width: 20px;">
+                data-target="#modalAlterar" class="btn btn-success">Alterar</button>
+            </td>
+            <td style="width: 20px;">
             <button onclick="excluir(<?php echo $codigo; ?>)" type="submit" class="btn btn-danger" data-toggle="modal"
-              data-target="#modalDeletar">Deletar</button>
-          </td>
+                data-target="#modalDeletar">Deletar</button>
+            </td>
 
         </tr>
         <?php } ?>
-      </tbody>
-  </table>
+        </tbody>
+    </table>
     
     <!--popup de alterar -->
     <div class="modal fade" id="modalAlterar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -134,101 +136,98 @@
         </div>
         </div>
     </div>
+
     <!--popup de adicionar -->
     <div class="modal fade" id="modalAdicionar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
-      <div class="modal-dialog" role="document">
+        <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
+            <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Criar novo Registro</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
+            </div>
+            <div class="modal-body">
             <form action="include.php" method="POST">
 
-              <div class="form-group">
+                <div class="form-group">
                 <label for="exampleInputEmail1">Nome:</label>
                 <input type="text" class="form-control" name="Nome" id="Nome" aria-describedby="emailHelp"
-                  placeholder="Digite seu nome" required name="">
+                    placeholder="Digite seu nome" required name="">
 
-              </div>
-              <div class="form-group">
+                </div>
+                <div class="form-group">
                 <label for="exampleInputPassword1">CPF:</label>
                 <input type="number" class="form-control" name="cpf" id="cpf" placeholder="Digite seu CPF">
-              </div>
+                </div>
 
-              <div class="form-group">
+                <div class="form-group">
                 <label for="exampleInputEmail1">Endereço:</label>
                 <input type="text" class="form-control" name="endereco" id="endereco" aria-describedby="endereco"
-                  placeholder="Digite seu Endereço">
-              </div>
+                    placeholder="Digite seu Endereço">
+                </div>
 
-              <div class="form-group">
+                <div class="form-group">
                 <label for="exampleInputPassword1">CEP:</label>
                 <input type="number" class="form-control" name="cep" id="cep" placeholder="Digite seu CEP">
-              </div>
-              <div class="form-group">
+                </div>
+                <div class="form-group">
                 <label for="exampleInputPassword1">Email:</label>
                 <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu E-mail">
-              </div>
+                </div>
 
-          </div>
-          <div class="modal-footer">
+            </div>
+            <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-primary">Adicionar Registro</button>
-          </div>
-          </form>
+            </div>
+            </form>
         </div>
-      </div>
+        </div>
     </div>
+
     <!--confirmação de deletar -->
     <div class="modal fade" id="modalDeletar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
+            <div class="modal-header">
             <center>
-              <h5 class="modal-title" id="exampleModalLabel">Deseja realmente excluir?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Deseja realmente excluir?</h5>
             </center>
             <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
+            </div>
+            <div class="modal-body">
             <center>
-              <form action="excluir.php" method="POST">
+                <form action="excluir.php" method="POST">
                 <input type="hidden" name="idRegistro" id="idRegistro">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
                 <button type="submit" class="btn btn-danger">Sim</button>
-              </form>
+                </form>
             </center>
 
-          </div>
+            </div>
         </div>
-      </div>
+        </div>
+    </div>
 
-
-    
-    
-    
-    <!--confirmação de deletar (fim) -->
+    <!-- Scripts -->
     <script>
-    function excluir(lin) {
-    document.getElementById("idRegistro").value = lin;
-    }
+        function excluir(lin) {
+        document.getElementById("idRegistro").value = lin;
+        }
 
-    function alterar(lin, nome, cpf, endereco, cep, email) {
-    document.getElementById("codigo").value = lin;
-    document.getElementById("Nome").value = nome;
-    document.getElementById("cpf").value = cpf;
-    document.getElementById("endereco").value = endereco;
-    document.getElementById("cep").value = cep;
-    document.getElementById("email").value = email;
-    }
+        function alterar(lin, nome, cpf, endereco, cep, email) {
+        document.getElementById("codigo").value = lin;
+        document.getElementById("Nome").value = nome;
+        document.getElementById("cpf").value = cpf;
+        document.getElementById("endereco").value = endereco;
+        document.getElementById("cep").value = cep;
+        document.getElementById("email").value = email;
+        }
     </script>
-
-
 </body>
 
 </html>
