@@ -106,8 +106,8 @@
                 <label for="exampleInputEmail1">Nome:</label>
                 <input type="text" class="form-control" id="Nome" name="Nome" aria-describedby="emailHelp"
                     placeholder="Digite seu nome" required>
-
                 </div>
+
                 <div class="form-group">
                 <label for="exampleInputPassword1">CPF:</label>
                 <input type="number" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF">
@@ -123,13 +123,33 @@
                 <label for="exampleInputPassword1">CEP:</label>
                 <input type="number" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP">
                 </div>
+
                 <div class="form-group">
                 <label for="exampleInputPassword1">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu E-mail">
+                </div>
+
+                <div class="form-group">
+                <label for="exampleInputPassword1">Dia da semana:</label>
+                <select type="cargo" class="form-control" name="cargo" id="cargo">
+                    <option value="1">Segunda-feira</option>
+                    <option value="2">Terça-feira</option>
+                    <option value="3">Quarta-feira</option>
+                    <option value="4">Quinta-feira</option>
+                    <option value="5">Sexta-feira</option>
+                    <option value="6">Sàbado</option>
+                    <option value="7">Domigo</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                <label for="exampleInputPassword1">Horário:</label>
+                <input type="time" class="form-control" name="time" id="time" placeholder="Horário disponivel">
+                </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-primary">Salvar mudanças</button>
-                </div>
                 </div>
             </form>
             </div>
@@ -154,8 +174,8 @@
                 <label for="exampleInputEmail1">Nome:</label>
                 <input type="text" class="form-control" name="Nome" id="Nome" aria-describedby="emailHelp"
                     placeholder="Digite seu nome" required name="">
-
                 </div>
+
                 <div class="form-group">
                 <label for="exampleInputPassword1">CPF:</label>
                 <input type="number" class="form-control" name="cpf" id="cpf" placeholder="Digite seu CPF">
@@ -171,12 +191,31 @@
                 <label for="exampleInputPassword1">CEP:</label>
                 <input type="number" class="form-control" name="cep" id="cep" placeholder="Digite seu CEP">
                 </div>
+
                 <div class="form-group">
                 <label for="exampleInputPassword1">Email:</label>
                 <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu E-mail">
                 </div>
 
-            </div>
+                <div class="form-group">
+                <label for="exampleInputPassword1">Dia da semana:</label>
+                <select type="cargo" class="form-control" name="cargo" id="cargo">
+                    <option hidden>Selecione uma opção</option> 
+                    <option value="1">Segunda-feira</option>
+                    <option value="2">Terça-feira</option>
+                    <option value="3">Quarta-feira</option>
+                    <option value="4">Quinta-feira</option>
+                    <option value="5">Sexta-feira</option>
+                    <option value="6">Sàbado</option>
+                    <option value="7">Domigo</option>
+                </select>
+                </div>
+
+                <div class="form-group">
+                <label for="exampleInputPassword1">Horário</label>
+                <input type="time" class="form-control" name="time" id="time" placeholder="Horário disponivel">
+                </div>
+
             <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             <button type="submit" class="btn btn-primary">Adicionar Registro</button>
