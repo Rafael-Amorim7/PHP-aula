@@ -44,16 +44,13 @@
                     
                 ?>
         <tr>
-            <th> Nome
-            </th>
-            <th> CPF
-            </th>
-            <th> Endereço
-            </th>
-            <th> CEP
-            </th>
-            <th> e-mail
-            </th>
+            <th> Nome</th>
+            <th> CPF</th>
+            <th> Endereço</th>
+            <th> CEP</th>
+            <th> E-mail</th>
+            <th> Dia</th>
+            <th> Horário</th>
             <th colspan="2">
             <center>
                 Ações
@@ -72,20 +69,23 @@
             <td id="<?="endereco".$codigo?>"> <?=$endereco?> </td>
             <td id="<?="cep".$codigo?>"> <?=$cep?> </td>
             <td id="<?="email".$codigo?>"> <?=$email?> </td>
+            <td id="<?="dia".$codigo?>"> Sera adicionado </td>
+            <td id="<?="hora".$codigo?>"> Sera adicionado  </td>
 
             <td style="width: 20px;">
             <button onclick="alterar(<?php echo $codigo.', \''.$nome.'\', '.$cpf.', \''.$endereco.'\', '.$cep.', \''.$email.'\''; ?>)" type="submit" data-toggle="modal"
                 data-target="#modalAlterar" class="btn btn-success">Alterar</button>
             </td>
+            
             <td style="width: 20px;">
-            <button onclick="excluir(<?php echo $codigo; ?>)" type="submit" class="btn btn-danger" data-toggle="modal"
-                data-target="#modalDeletar">Deletar</button>
+            <button onclick="excluir(<?php echo $codigo; ?>)" type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalDeletar">Deletar</button>
             </td>
 
         </tr>
         <?php } ?>
         </tbody>
     </table>
+
     
     <!--popup de alterar -->
     <div class="modal fade" id="modalAlterar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -157,6 +157,33 @@
         </div>
     </div>
 
+    <!--popup de deletar -->
+    <div class="modal fade" id="modalDeletar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <center>
+                <h5 class="modal-title" id="exampleModalLabel">Deseja realmente excluir?</h5>
+            </center>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <center>
+                <form action="excluir.php" method="POST">
+                <input type="hidden" name="idRegistro" id="idRegistro">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </center>
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+
     <!--popup de adicionar -->
     <div class="modal fade" id="modalAdicionar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -216,37 +243,11 @@
                 <input type="time" class="form-control" name="time" id="time" placeholder="Horário disponivel">
                 </div>
 
-            <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Adicionar Registro</button>
-            </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Adicionar Registro</button>
+                </div>
             </form>
-        </div>
-        </div>
-    </div>
-
-    <!--confirmação de deletar -->
-    <div class="modal fade" id="modalDeletar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <center>
-                <h5 class="modal-title" id="exampleModalLabel">Deseja realmente excluir?</h5>
-            </center>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-            <center>
-                <form action="excluir.php" method="POST">
-                <input type="hidden" name="idRegistro" id="idRegistro">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
-                <button type="submit" class="btn btn-danger">Sim</button>
-                </form>
-            </center>
-
             </div>
         </div>
         </div>
