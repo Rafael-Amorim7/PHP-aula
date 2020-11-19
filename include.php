@@ -1,6 +1,6 @@
 <?php
     include ("conexao.php");
-    $nome = ""; $cpf = ""; $endereco=""; $cep=""; $email="";
+    $nome = ""; $cpf = ""; $endereco=""; $cep=""; $email=""; $weekdays=""; $time="";
 
 
     if (!empty($_POST["Nome"])){
@@ -22,7 +22,15 @@
         $email = $_POST["email"];
     }
 
-    $sql = "insert into pessoas(Nome,cpf,endereco,cep,email) values ('$nome','$cpf','$endereco','$cep','$email')";
+    if (!empty($_POST["weekdays"])){
+        $weekdays = $_POST["weekdays"];
+    }
+
+    if (!empty($_POST["time"])){
+        $time = $_POST["time"];
+    }
+
+    $sql = "INSERT INTO pessoas(Nome,cpf,endereco,cep,email,weekdays,time) VALUES ('$nome','$cpf','$endereco','$cep','$email', '$weekdays', '$time')";
     $status = $conecta->query($sql);
 
     echo "<script>alert('Registro cadastrado'); location.href='index.php'</script>";

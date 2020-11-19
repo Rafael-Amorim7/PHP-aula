@@ -23,7 +23,7 @@
     <!-- Tabela de usuarios cadastrados -->
     <table class="table table-striped table-dark">
         <thead>
-        <th colspan="8">
+        <th colspan="10">
         <center>
             Tabela Contadora (Em produção)
         </center>
@@ -69,8 +69,8 @@
             <td id="<?="endereco".$codigo?>"> <?=$endereco?> </td>
             <td id="<?="cep".$codigo?>"> <?=$cep?> </td>
             <td id="<?="email".$codigo?>"> <?=$email?> </td>
-            <td id="<?="dia".$codigo?>"> Sera adicionado </td>
-            <td id="<?="hora".$codigo?>"> Sera adicionado  </td>
+            <td id="<?="dia".$codigo?>"> <?=$weekdays?> </td>
+            <td id="<?="hora".$codigo?>"> <?=$time?>  </td>
 
             <td style="width: 20px;">
             <button onclick="alterar(<?php echo $codigo.', \''.$nome.'\', '.$cpf.', \''.$endereco.'\', '.$cep.', \''.$email.'\''; ?>)" type="submit" data-toggle="modal"
@@ -131,7 +131,7 @@
 
                 <div class="form-group">
                 <label for="exampleInputPassword1">Dia da semana:</label>
-                <select type="cargo" class="form-control" name="cargo" id="cargo">
+                <select class="form-control" name="weekdays" id="weekdays">
                     <option value="1">Segunda-feira</option>
                     <option value="2">Terça-feira</option>
                     <option value="3">Quarta-feira</option>
@@ -226,7 +226,7 @@
 
                 <div class="form-group">
                 <label for="exampleInputPassword1">Dia da semana:</label>
-                <select type="cargo" class="form-control" name="cargo" id="cargo">
+                <select class="form-control" name="weekdays" id="weekdays">
                     <option hidden>Selecione uma opção</option> 
                     <option value="1">Segunda-feira</option>
                     <option value="2">Terça-feira</option>
